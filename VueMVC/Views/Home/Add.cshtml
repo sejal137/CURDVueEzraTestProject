@@ -1,0 +1,33 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Add Employee";
+}
+<div id="app">
+    <div id="AddEmployee">
+        <div class="row">
+            <label>Name</label>
+            <input type="text" id="txtName" v-model="Name" />
+        </div>
+        <div class="row">
+            <label>Email</label>
+            <input type="text" id="txtEmail" v-model="Email" />
+        </div>
+        <div class="row">
+            <label>Phone Numbers</label>
+            <input type="text" id="txtPhoneNum" v-model="Phone" />
+        </div>
+        <div class="row">
+            <button class="btn btn-md btn-primary" v-on:click="SaveEmployee()">Save</button>
+            <button class="btn btn-md btn-danger" v-on:click="Cancel()">Cancel</button>
+        </div>
+        </div>
+</div>
+@section styles{
+    @Styles.Render("~/Css/vueMvc.css")
+}
+@section scripts {
+    @Scripts.Render("~/Scripts/bundle/home.js")
+}
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+

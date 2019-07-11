@@ -1,0 +1,61 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="app">
+    <div id="EditEmployee" style="display:none;">
+        <div class="row">
+            <label>Name</label>
+            <input type="text" id="txtName" v-model="Name" />
+        </div>
+        <div class="row">
+            <label>Email</label>
+            <input type="text" id="txtEmail" v-model="Email" />
+        </div>
+        <div class="row">
+            <label>Phone Numbers</label>
+            <input type="text" id="txtPhoneNum" v-model="Phone" />
+        </div>
+        <div class="row">
+            <button class="btn btn-md btn-primary" v-on:click="UpdateEmployee()">Save</button>
+            <button class="btn btn-md btn-danger" v-on:click="Cancel()">Cancel</button>
+        </div>
+    </div>
+    <div id="EmployeeList">
+        <button class="btn btn-primary" v-on:click="AddEmployee">Add Employee</button>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+
+
+            <tr v-for="(row,index) in rows" v-bind:key="row.Id">
+                <td>{{ row.Id }}</td>
+                <td>{{ row.Name }}</td>
+                <td>{{ row.Email }}</td>
+                <td>{{ row.PhonNum }}</td>
+
+                <td>
+                    <button class="btn btn-xs btn-danger" v-on:click="DeleteEmployee(row.Id, index)">Delete</button>
+                    <button class="btn btn-xs btn-primary" v-on:click="EditEmployee(row)">Edit</button>
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+</div>
+@section styles{
+    @Styles.Render("~/Css/vueMvc.css")
+}
+@section scripts {
+    @Scripts.Render("~/Scripts/bundle/home.js")
+}
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
