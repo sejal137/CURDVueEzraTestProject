@@ -130,5 +130,10 @@ namespace VueMVC.Controllers
                 return Json("Some error occur", JsonRequestBehavior.AllowGet);
             }
         }
+        
+         public ActionResult AddPage()
+        {
+            return View("Add");
+        }
     }
 }
